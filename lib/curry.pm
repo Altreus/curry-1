@@ -105,6 +105,13 @@ There's an equivalent - but somewhat less useful - C< $curry > package variable:
   print "The stashed value from our ->something method call was $var\n";
  }, $self->something('complicated'));
 
+Both of these methods can also be used if your scalar is a method name, rather
+than a coderef.
+
+ use curry;
+
+ my $code = $self->$curry::curry($methodname, $self->something('complicated'));
+
 =head1 RATIONALE
 
 How many times have you written
